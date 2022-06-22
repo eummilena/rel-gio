@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Cabin+Sketch&family=Pacifico&family=Space+Grotesk:wght@300&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            background: #000;
+
+        }
+
+        #hour {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(47, 255, 47);
+            font-size: 20rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+    <title>Horário de Brasília</title>
+</head>
+
+<body>
+    <div id="hour"></div>
+    <script>
+        (function () {
+            const hour = document.getElementById('hour');
+
+
+            function time() {
+                let today = new Date();
+                let h = today.getHours();
+                let m = today.getMinutes();
+                let s = today.getSeconds();
+                // return h + ':' + m + ':' + s;
+                h = h < 10 ? '0' + h : h;
+                m = m < 10 ? '0' + m : m;
+                s = s < 10 ? '0' + s : s;
+                hour.textContent = h + ':' + m + ':' + s;
+            }
+
+
+            setInterval(function () {
+                time();
+            }, 1000);
+        })();
+
+
+    </script>
+</body>
+
+</html>
